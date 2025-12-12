@@ -19,7 +19,7 @@ public interface    PostRepository extends JpaRepository<Post, Long> {
 
 
 
-    @Query("select p from Post p order by p.published DESC")
+    @Query("select p from Post p where p.published<current_date order by p.published DESC")
     Page<Post> findPostByOrderByPublishedDesc(Pageable pageable);
 
 
